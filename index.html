@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Annai Lørenskog – Teacher Attendance</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Login -->
+  <div id="login-screen">
+    <h1>🎓 Annai Lørenskog</h1>
+    <button onclick="showTeacherSelect()">👤 Teacher Login</button>
+    <button onclick="showAdminLogin()" class="secondary">🔐 Admin Login</button>
+  </div>
+
+  <!-- Teacher Select -->
+  <div id="teacher-select" class="hidden">
+    <h2>Select Your Name</h2>
+    <div id="teacher-list"></div>
+    <button class="link" onclick="showLogin()">← Back</button>
+  </div>
+
+  <!-- Admin Login -->
+  <div id="admin-login" class="hidden">
+    <h2>Admin Login</h2>
+    <input id="admin-user" placeholder="Username"/>
+    <input id="admin-pass" type="password" placeholder="Password"/>
+    <button onclick="adminLogin()">Login</button>
+    <button class="link" onclick="showLogin()">← Back</button>
+  </div>
+
+  <!-- Teacher Dashboard -->
+  <div id="teacher-dashboard" class="hidden">
+    <h2 id="teacher-name"></h2>
+    <p id="teacher-role"></p>
+
+    <label>Date</label>
+    <input type="date" id="teacher-date" />
+
+    <div id="teacher-status"></div>
+
+    <button class="link" onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="admin-dashboard" class="hidden">
+    <h2>Styre – Attendance Approval</h2>
+
+    <label>Select date</label>
+    <input type="date" id="admin-date" onchange="loadAdminDashboard()" />
+
+    <div id="admin-records"></div>
+
+    <button class="link" onclick="logout()">Logout</button>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
